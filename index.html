@@ -91,10 +91,6 @@
             border-color: white;
         }
 
-        .go-top-btn {
-            background: rgba(58, 134, 255, 0.9);
-        }
-
         /* Навигационное меню в шапке */
         .nav-menu {
             display: flex;
@@ -670,22 +666,27 @@
 
     <canvas id="fireworksCanvas"></canvas>
 
-    <!-- Плавающая навигация -->
+    <!-- Плавающая навигация (расширенная) -->
     <div class="floating-nav">
         <button class="nav-btn" id="navHomeBtn" title="Наверх">↑</button>
-        <button class="nav-btn" id="navEventsBtn" title="События">🏆</button>
+        <button class="nav-btn" id="navFlagshipBtn" title="Флагманские проекты">🏆</button>
+        <button class="nav-btn" id="navEventsBtn" title="События года">📅</button>
         <button class="nav-btn" id="navGamesBtn" title="Игры">🎮</button>
+        <button class="nav-btn" id="navSummerBtn" title="Летняя кампания">🌟</button>
     </div>
 
     <div class="content">
         <div class="container">
             <div class="main-header">
                 <div class="logo">
-                    <img src="img/logo_kvantorium_tsv.png" alt="Логотип Кванториум" class="logo-image" loading="lazy"
+                    <img src="img/kvantorium_gaz_pdf_s_palkoy.png" alt="Логотип Кванториум" class="logo-image"
+                        loading="lazy"
                         onerror="this.src='https://placehold.co/200x200/1e2a5e/white?text=КВАНТОРИУМ'; this.style.borderRadius='50%';">
                 </div>
                 <div class="logo-sub">Нижний Новгород • Растим будущие кадры России</div>
             </div>
+
+           
 
             <!-- Блок миссии и цели -->
             <div id="missions">
@@ -730,10 +731,10 @@
                         <div class="quote-text">
                             Мы гордимся тем, что наши воспитанники становятся лидерами в науке и технологиях, и рады
                             видеть,
-                            как их успехи укрепляют статус Нижегородской области как центра инновационного образования
+                            как их успехи укрепляют статус Нижегородской области как центра инновационного образования.
                         </div>
                         <div class="director-name">Непокорова Светлана Александровна</div>
-                        <div class="director-title">Директор ГБУДО ЦМИНК «Кванториум» Нижний Новгород</div>
+                        <div class="director-title">Директор ГБУДО ЦМИНК «Кванториум» (Нижний Новгород)</div>
                     </div>
                 </div>
             </div>
@@ -848,7 +849,7 @@
 
             <!-- Игры -->
             <section id="gamesSection">
-                <div class="section-title-light">🎮 Игры собственной разработки</div>
+                <div class="section-title-light">Игры собственной разработки</div>
                 <div class="games-grid" id="gamesGrid"></div>
                 <div class="event-desc" style="text-align:center; max-width:900px; margin:20px auto;">Все игры созданы
                     педагогами и IT-специалистами «Кванториума» для развития логики, математических способностей,
@@ -858,11 +859,11 @@
 
             <!-- Летняя кампания -->
             <section id="summerSection">
-                <div class="section-title-light">🌟 Летняя кампания и городские события</div>
+                <div class="section-title-light">Летняя кампания и городские события</div>
                 <div class="events-grid" id="summerGrid"></div>
             </section>
 
-            
+           
         </div>
     </div>
 
@@ -885,7 +886,6 @@
         const eventsData = [
             { title: "Чемпионат «Профессионалы»", desc: "Всероссийский чемпионат: мастер-классы по AR-открыткам, кибербезопасности. Участники из 15 регионов и стран СНГ.", meta: "📍 май 2026 | 400+ участников", img: "img/7.jpg" },
             { title: "Всемирный фестиваль молодёжи", desc: "Интерактивная выставка Кванториума. Более 2000 участников из 120 стран, презентация российского инженерного образования.", meta: "📍 март 2026 | 2000+ участников", img: "img/17.jpg" },
-            
             { title: "Региональный этап Интеллектуальной олимпиады ПФО", desc: "Интеллектуальная олимпиада: призовые места в программировании БПЛА и робототехнике. Решение реальных задач.", meta: "📍 май 2026 | 80+ участников", img: "img/16.jpg" },
             { title: "Региональный итоговый форум «Взлёт. Промышленный старт»", desc: "Возможность для школьников проявить навыки, узнать о местных предприятиях и карьерных возможностях.", meta: "📍 май 2026 | 800+ участников", img: "img/34.jpg" }
         ];
@@ -897,16 +897,16 @@
         ];
 
         const gamesData = [
-            { name: "Квантохак", desc: "Интерактивная 2D-игра в командном формате. Логические аркады, математические головоломки, алгоритмика и скорость решений.", img: "img/quantohack.jpg" },
+            { name: "Квантохак", desc: "Интерактивная 2D-игра в командном формате. Логические аркады, математические головоломки, алгоритмика и скорость решений.", img: "img/11-.jpeg" },
             { name: "Уборка в комнате", desc: "Для дошкольников: поиск лишних предметов, порядок в комнатах. Развивает аккуратность и внимательность в мягкой карандашной рисовке.", img: "img/4.jpeg" },
-            { name: "Зельевары", desc: "Командная соревновательная игра по метрологии в русском сказочном сеттинге. Квест + цифровые мини-игры с измерениями.", img: "img/potion.jpg" },
+            { name: "Зельевары", desc: "Командная соревновательная игра по метрологии в русском сказочном сеттинге. Квест + цифровые мини-игры с измерениями.", img: "img/10-.jpeg" },
             { name: "Озеро Водяного", desc: "Мультиэкранная локация: запуск «блинчиков» по воде. Рассчёт угла и силы броска, проверка реакции.", img: "img/5-.jpeg" },
-            { name: "Экспериментариум", desc: "Командная игра по химии/физике с тремя ролями. Создание реагентов, атаки и защита. Доступно без специальных знаний.", img: "img/31.jpg" },
+            { name: "Экспериментариум", desc: "Командная игра по химии/физике с тремя ролями. Создание реагентов, атаки и защита. Доступно без специальных знаний.", img: "img/prav.jpeg" },
             { name: "Экспериментариум лайт", desc: "Адаптированная версия для дошкольников: смешивание цветов, упрощённое управление, без атак. Первый интерес к наукам.", img: "img/7-.jpeg" },
-            { name: "Безопасный интернет", desc: "Турнир «белые vs чёрные хакеры». Шифрование, взлом, расшифровка данных — знакомство с кибербезопасностью в аркадном формате.", img: "img/safe_internet.jpg" },
+            { name: "Безопасный интернет", desc: "Турнир «белые vs чёрные хакеры». Шифрование, взлом, расшифровка данных — знакомство с кибербезопасностью в аркадном формате.", img: "img/9-.jpeg" },
             { name: "Научная мозаика", desc: "Дуэли на решение научных головоломок. Вызов оппонента, захват территорий, открытие деталей общей мозаики.", img: "img/6-.jpeg" },
             { name: "Экспериментариум 3D", desc: "Полноценная 3D-изометрическая версия. Свободное перемещение по лабораториям, усиленное командное взаимодействие.", img: "img/3.jpeg" },
-            { name: "Конструкторское бюро", desc: "Обучающая аркада 2D+3D для детей: создание деталей через управление мышью/клавиатурой, сборка транспорта по чертежам и тест-драйв.", img: "img/c.jpeg" }
+            { name: "Конструкторское бюро", desc: "Обучающая аркада 2D+3D для детей: создание деталей через управление мышью/клавиатурой, сборка транспорта по чертежам и тест-драйв.", img: "img/8-.jpeg" }
         ];
 
         function createEventCards(containerId, data) {
@@ -956,7 +956,7 @@
             document.getElementById('lightbox').classList.remove('active');
         };
 
-        // ========== УЛУЧШЕННЫЙ СЛАЙДЕР С ЦЕНТРИРОВАНИЕМ ==========
+        // ========== ИСПРАВЛЕННЫЙ СЛАЙДЕР ==========
         function initSlider() {
             const container = document.getElementById('sliderContainer');
             const leftBtn = document.getElementById('sliderLeft');
@@ -965,44 +965,43 @@
 
             if (!container || !leftBtn || !rightBtn) return;
 
-            function centerCurrentSlide() {
+            function scrollToNextSlide(direction) {
                 const containerRect = container.getBoundingClientRect();
                 const containerCenter = containerRect.left + containerRect.width / 2;
 
-                let closestSlide = null;
-                let minDistance = Infinity;
+                let targetSlide = null;
+                let bestDistance = direction === 'next' ? Infinity : -Infinity;
 
                 slides.forEach(slide => {
                     const slideRect = slide.getBoundingClientRect();
                     const slideCenter = slideRect.left + slideRect.width / 2;
-                    const distance = Math.abs(containerCenter - slideCenter);
-                    if (distance < minDistance) {
-                        minDistance = distance;
-                        closestSlide = slide;
+                    const distance = slideCenter - containerCenter;
+
+                    if (direction === 'next' && distance > 10 && distance < bestDistance) {
+                        bestDistance = distance;
+                        targetSlide = slide;
+                    } else if (direction === 'prev' && distance < -10 && distance > bestDistance) {
+                        bestDistance = distance;
+                        targetSlide = slide;
                     }
                 });
 
-                if (closestSlide) {
-                    const scrollLeft = closestSlide.offsetLeft - (container.clientWidth / 2) + (closestSlide.clientWidth / 2);
+                if (targetSlide) {
+                    const scrollLeft = targetSlide.offsetLeft - (container.clientWidth / 2) + (targetSlide.clientWidth / 2);
+                    container.scrollTo({ left: scrollLeft, behavior: 'smooth' });
+                } else if (direction === 'next' && slides.length > 0) {
+                    const firstSlide = slides[0];
+                    const scrollLeft = firstSlide.offsetLeft - (container.clientWidth / 2) + (firstSlide.clientWidth / 2);
+                    container.scrollTo({ left: scrollLeft, behavior: 'smooth' });
+                } else if (direction === 'prev' && slides.length > 0) {
+                    const lastSlide = slides[slides.length - 1];
+                    const scrollLeft = lastSlide.offsetLeft - (container.clientWidth / 2) + (lastSlide.clientWidth / 2);
                     container.scrollTo({ left: scrollLeft, behavior: 'smooth' });
                 }
             }
 
-            leftBtn.addEventListener('click', () => {
-                container.scrollBy({ left: -300, behavior: 'smooth' });
-                setTimeout(centerCurrentSlide, 300);
-            });
-
-            rightBtn.addEventListener('click', () => {
-                container.scrollBy({ left: 300, behavior: 'smooth' });
-                setTimeout(centerCurrentSlide, 300);
-            });
-
-            let scrollTimeout;
-            container.addEventListener('scroll', () => {
-                clearTimeout(scrollTimeout);
-                scrollTimeout = setTimeout(centerCurrentSlide, 150);
-            });
+            leftBtn.addEventListener('click', () => scrollToNextSlide('prev'));
+            rightBtn.addEventListener('click', () => scrollToNextSlide('next'));
 
             slides.forEach(slide => {
                 slide.addEventListener('click', (e) => {
@@ -1012,8 +1011,6 @@
                     container.scrollTo({ left: scrollLeft, behavior: 'smooth' });
                 });
             });
-
-            setTimeout(centerCurrentSlide, 100);
         }
 
         // ========== АНИМАЦИЯ ЦИФР ==========
@@ -1042,23 +1039,51 @@
             });
         }
 
-        // ========== НАВИГАЦИЯ ==========
+        // ========== РАСШИРЕННАЯ НАВИГАЦИЯ ==========
         function initNavigation() {
             document.getElementById('navHomeBtn').addEventListener('click', () => {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
-
+            document.getElementById('navFlagshipBtn').addEventListener('click', () => {
+                document.getElementById('flagshipSection').scrollIntoView({ behavior: 'smooth' });
+            });
             document.getElementById('navEventsBtn').addEventListener('click', () => {
                 document.getElementById('eventsSection').scrollIntoView({ behavior: 'smooth' });
             });
-
             document.getElementById('navGamesBtn').addEventListener('click', () => {
                 document.getElementById('gamesSection').scrollIntoView({ behavior: 'smooth' });
             });
+            document.getElementById('navSummerBtn').addEventListener('click', () => {
+                document.getElementById('summerSection').scrollIntoView({ behavior: 'smooth' });
+            });
+
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const section = link.getAttribute('data-section');
+                    if (section === 'top') {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    } else if (section === 'missions') {
+                        document.getElementById('missions').scrollIntoView({ behavior: 'smooth' });
+                    } else if (section === 'flagshipSection') {
+                        document.getElementById('flagshipSection').scrollIntoView({ behavior: 'smooth' });
+                    } else if (section === 'eventsSection') {
+                        document.getElementById('eventsSection').scrollIntoView({ behavior: 'smooth' });
+                    } else if (section === 'gamesSection') {
+                        document.getElementById('gamesSection').scrollIntoView({ behavior: 'smooth' });
+                    } else if (section === 'summerSection') {
+                        document.getElementById('summerSection').scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
         }
 
-        // ========== САЛЮТ ==========
+        // ========== САЛЮТ (ИСПРАВЛЕННЫЙ — БЕЗ ДУБЛИРОВАНИЯ ПРИ ПОВТОРНОМ ЗАХОДЕ) ==========
         (function fireworkAndStars() {
+            // Проверка, не был ли уже инициализирован салют
+            if (window.fireworksInitialized) return;
+            window.fireworksInitialized = true;
+
             const canvas = document.getElementById('fireworksCanvas');
             let ctx = canvas.getContext('2d');
             let particles = [];
@@ -1147,23 +1172,36 @@
             }
 
             function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+
+            let animationId;
             function animate() {
                 for (let i = particles.length - 1; i >= 0; i--) if (!particles[i].update()) particles.splice(i, 1);
                 ctx.fillStyle = 'rgba(6, 12, 30, 0.25)';
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
                 drawStars();
                 for (let p of particles) p.draw(ctx);
-                requestAnimationFrame(animate);
+                animationId = requestAnimationFrame(animate);
             }
 
             window.addEventListener('resize', resize);
             resize();
-            setInterval(() => {
+
+            // Запускаем только один интервал для случайных салютов
+            let intervalId = setInterval(() => {
                 if (particles.length < 1500) randomFirework();
                 else if (Math.random() < 0.4) randomFirework();
             }, rand(2000, 3800));
-            setTimeout(() => { for (let i = 0; i < 5; i++) setTimeout(randomFirework, i * 350); }, 300);
+
+            // Запускаем только один стартовый салют, а не 5 подряд
+            setTimeout(() => randomFirework(), 500);
+
             animate();
+
+            // Очистка при уходе со страницы (опционально)
+            window.addEventListener('beforeunload', () => {
+                if (intervalId) clearInterval(intervalId);
+                if (animationId) cancelAnimationFrame(animationId);
+            });
         })();
 
         // Запуск всех функций
