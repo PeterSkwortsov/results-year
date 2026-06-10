@@ -45,68 +45,49 @@
             width: 100%;
         }
 
-        section {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.8s ease;
+        /* Блок с цифрами на отдельном фоне */
+        .stats-section-wrapper {
+            position: relative;
+            margin: 40px 0 60px;
+            border-radius: 60px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
         }
 
-        section.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .stats-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            filter: brightness(0.9) contrast(1.3);
         }
 
-        .container {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 0 30px;
+        .stats-overlay {
+            position: relative;
+            z-index: 2;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 30px 20px;
+            border-radius: 60px;
         }
 
-        /* header */
-        .main-header {
-            padding: 35px 0 20px;
-            text-align: center;
-            border-bottom: 1px solid rgba(100, 150, 255, 0.25);
-            margin-bottom: 40px;
-        }
-
-        .logo-image {
-            max-width: 200px;
-            max-height: 200px;
-            width: auto;
-            height: auto;
-            filter: drop-shadow(0 0 20px rgba(0, 160, 255, 0.4));
-            transition: transform 0.3s ease;
-        }
-
-        .logo-image:hover {
-            transform: scale(1.02);
-        }
-
-        .logo-sub {
-            font-size: 0.85rem;
-            letter-spacing: 2px;
-            color: #bdd4ff;
-            margin-top: 8px;
-        }
-
-        /* stats */
         .stats-grid {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 40px;
-            margin: 70px 0 60px;
         }
 
         .stat-card {
-            background: rgba(12, 20, 45, 0.65);
+            background: rgba(12, 20, 45, 0.75);
             backdrop-filter: blur(10px);
             border-radius: 40px;
             padding: 30px 35px;
             text-align: center;
             min-width: 230px;
-            border: 1px solid rgba(70, 150, 255, 0.3);
+            border: 1px solid rgba(70, 150, 255, 0.4);
             transition: transform 0.2s ease, border-color 0.2s;
         }
 
@@ -131,6 +112,51 @@
             font-weight: 500;
             margin-top: 15px;
             color: #cddeff;
+        }
+
+        section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.8s ease;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        /* header */
+        .main-header {
+            padding: 35px 0 20px;
+            text-align: center;
+            border-bottom: 1px solid rgba(100, 150, 255, 0.25);
+            margin-bottom: 20px;
+        }
+
+        .logo-image {
+            max-width: 200px;
+            max-height: 200px;
+            width: auto;
+            height: auto;
+            filter: drop-shadow(0 0 20px rgba(0, 160, 255, 0.4));
+            transition: transform 0.3s ease;
+        }
+
+        .logo-image:hover {
+            transform: scale(1.02);
+        }
+
+        .logo-sub {
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            color: #bdd4ff;
+            margin-top: 8px;
         }
 
         .section-title {
@@ -211,7 +237,7 @@
             color: #7d96cc;
         }
 
-        /* слайдер со стрелками и лайтбоксом */
+        /* слайдер */
         .slider-wrapper {
             position: relative;
             margin: 50px 0;
@@ -286,7 +312,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
         }
 
         .slider-btn:hover {
@@ -329,7 +354,6 @@
             max-width: 90%;
             max-height: 85%;
             border-radius: 20px;
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
         }
 
         .games-grid {
@@ -405,31 +429,35 @@
                     <img src="img/logo_kvantorium_tsv.png" alt="Логотип Кванториум" class="logo-image"
                         onerror="this.src='https://placehold.co/200x200/1e2a5e/white?text=КВАНТОРИУМ'; this.style.borderRadius='50%';">
                 </div>
-                <div class="logo-sub">ГБУДО ЦМИНК • Нижний Новгород • Инженерное будущее России</div>
+                <div class="logo-sub">Нижний Новгород • Создаем будущее России</div>
             </div>
 
-            <!-- Статистика -->
-            <section id="statsSection">
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-number">64</div>
-                        <div class="stat-label">победителя международных конкурсов<br>каждый второй участник — призёр!
+            <!-- Блок с цифрами на полноэкранном фоне -->
+            <div class="stats-section-wrapper" id="statsWrapper">
+                <img src="img/1.jpg" alt="Кванториум фон" class="stats-bg" onerror="this.style.display='none'">
+                <div class="stats-overlay">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">64</div>
+                            <div class="stat-label">победителя международных конкурсов<br>каждый второй участник —
+                                призёр!</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">140</div>
+                            <div class="stat-label">победителей всероссийских конкурсов<br>более 50% в числе лучших
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">400+</div>
+                            <div class="stat-label">мероприятий в год<br>16 000 участников по всей стране</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">140+</div>
+                            <div class="stat-label">часов интенсивного обучения<br>максимум практики</div>
                         </div>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-number">140</div>
-                        <div class="stat-label">победителей всероссийских конкурсов<br>более 50% в числе лучших</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">400+</div>
-                        <div class="stat-label">мероприятий в год<br>16 000 участников по всей стране</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">140+</div>
-                        <div class="stat-label">часов интенсивного обучения<br>максимум практики</div>
-                    </div>
                 </div>
-            </section>
+            </div>
 
             <!-- Слайдер с картинками и стрелками -->
             <section>
@@ -438,43 +466,60 @@
                     <div class="slider-btn btn-left" id="sliderLeft">‹</div>
                     <div class="slider-container" id="sliderContainer">
                         <div class="slider" id="slider">
-                            <div class="slide" data-img="img/1.jpeg"><img src="img/1.jpeg" alt="VR/AR"
+                            <div class="slide" data-img="img/14.jpg"><img src="img/14.jpg" alt="VR/AR"
                                     onerror="this.src='https://placehold.co/300x200/1e2a5e/white?text=VR/AR'">
                                 <div class="slide-caption">VR/AR-квантум: дополненная реальность</div>
                             </div>
-                            <div class="slide" data-img="img/2.jpeg"><img src="img/2.jpeg" alt="Промробо"
+                            <div class="slide" data-img="img/3.jpg"><img src="img/3.jpg" alt="Промробо"
                                     onerror="this.src='https://placehold.co/300x200/1e2a5e/white?text=Промробо'">
                                 <div class="slide-caption">Промробоквантум: индустриальные роботы</div>
                             </div>
-                            <div class="slide" data-img="img/3.jpeg"><img src="img/3.jpeg" alt="Био"
+                            <div class="slide" data-img="img/13.jpg"><img src="img/13.jpg" alt="Био"
                                     onerror="this.src='https://placehold.co/300x200/1e2a5e/white?text=Биоквантум'">
                                 <div class="slide-caption">Биоквантум: биотехнологии будущего</div>
                             </div>
-                            <div class="slide" data-img="img/4.jpeg"><img src="img/4.jpeg" alt="IT"
+                            <div class="slide" data-img="img/20.jpg"><img src="img/20.jpg" alt="Био"
+                                    onerror="this.src='https://placehold.co/300x200/1e2a5e/white?text=Биоквантум'">
+                                <div class="slide-caption">Мобильный Кванториум</div>
+                            </div>
+                            <div class="slide" data-img="img/15.jpg"><img src="img/15.jpg" alt="IT"
                                     onerror="this.src='https://placehold.co/300x200/1e2a5e/white?text=IT-квантум'">
                                 <div class="slide-caption">IT-квантум: нейросети и кибербезопасность</div>
                             </div>
-                            <div class="slide" data-img="img/5.jpeg"><img src="img/5.jpeg" alt="Хайтек"
+                            <div class="slide" data-img="img/11.jpg"><img src="img/11.jpg" alt="Хайтек"
                                     onerror="this.src='https://placehold.co/300x200/1e2a5e/white?text=Хайтек'">
                                 <div class="slide-caption">Хайтек: цифровое производство</div>
                             </div>
-                            <div class="slide" data-img="img/6.jpeg"><img src="img/6.jpeg" alt="Аэро"
-                                    onerror="this.src='https://placehold.co/300x200/1e2a5e/white?text=Аэроквантум'">
-                                <div class="slide-caption">Аэроквантум: беспилотные системы</div>
+                            <div class="slide" data-img="img/23.jpg"><img src="img/23.jpg" alt="Хайтек"
+                                    onerror="this.src='https://placehold.co/300x200/1e2a5e/white?text=Медиаквантум'">
+                                <div class="slide-caption">Медиаквантум</div>
                             </div>
+                            <div class="slide" data-img="img/25.jpg"><img src="img/25.jpg" alt="Хайтек"
+                                    onerror="this.src='https://placehold.co/300x200/1e2a5e/white?text=Кванто-шахматы'">
+                                <div class="slide-caption">Кванто-шахматы</div>
+                            </div>
+                            <div class="slide" data-img="img/27.jpg"><img src="img/27.jpg" alt="Хайтек"
+                                    onerror="this.src='https://placehold.co/300x200/1e2a5e/white?text=Математикаы'">
+                                <div class="slide-caption">Математика</div>
+                            </div>
+                            <div class="slide" data-img="img/28.jpg"><img src="img/28.jpg" alt="Хайтек"
+                                    onerror="this.src='https://placehold.co/300x200/1e2a5e/white?text=Школа анимации'">
+                                <div class="slide-caption">Школа анимации</div>
+                            </div>
+                            
                         </div>
                     </div>
                     <div class="slider-btn btn-right" id="sliderRight">›</div>
                 </div>
             </section>
 
-            <!-- Флагманские проекты (каждый с фото) -->
+            <!-- Флагманские проекты -->
             <section id="eventsSection">
                 <div class="section-title">🏆 Флагманские проекты и события года</div>
                 <div class="events-grid" id="flagshipGrid"></div>
             </section>
 
-            <!-- Игры подробно + фото -->
+            <!-- Игры -->
             <section>
                 <div class="section-title-light">🎮 Инновационные игры собственной разработки</div>
                 <div class="games-grid" id="gamesGrid"></div>
@@ -484,7 +529,7 @@
                 </div>
             </section>
 
-            <!-- Летняя кампания с фото -->
+            <!-- Летняя кампания -->
             <section>
                 <div class="section-title-light">🌟 Летняя кампания и городские события</div>
                 <div class="events-grid" id="summerGrid"></div>
@@ -499,32 +544,30 @@
         </div>
     </div>
 
-    <!-- Лайтбокс -->
     <div id="lightbox" class="lightbox" onclick="closeLightbox()">
         <img id="lightboxImg" src="">
     </div>
 
     <script>
-        // ========== ДАННЫЕ ДЛЯ КАРТОЧЕК С ФОТО ==========
+        // Данные для карточек
         const flagshipEvents = [
-            { title: "ТехноСтрелка", desc: "Международный фестиваль: 900+ участников из РФ, Казахстана, Узбекистана. 28 команд Нижегородской области в финале, проекты-победители.", meta: "📍 фев-апр 2026 | 900+ участников", img: "img/tehnostrelka.jpg" },
-            { title: "ТехноФест", desc: "Крупнейший региональный робототехнический фестиваль. 12 направлений: сумо роботов, марафон, инженерные проекты. Главный организатор — Кванториум.", meta: "📍 апр-май 2026 | 600+ участников", img: "img/technofest.jpg" },
-            { title: "Чемпионат «Профессионалы»", desc: "Всероссийский чемпионат: мастер-классы по AR-открыткам, кибербезопасности. Участники из 15 регионов и стран СНГ.", meta: "📍 май 2026 | 400+ участников", img: "img/professionaly.jpg" },
-            { title: "ИКаР (Инженерные кадры России)", desc: "Региональный этап соревнований и ИКаРёнок. Проекты автоматизации производств. Победители вышли в финал в Москве.", meta: "📍 март-апр 2026 | 200+ участников", img: "img/ikar.jpg" },
-            { title: "Олимпиада ПФО в Маяке", desc: "Интеллектуальная олимпиада: призовые места в программировании БПЛА и робототехнике. Решение реальных задач.", meta: "📍 май 2026 | 80+ участников", img: "img/mayak.jpg" },
-            { title: "Всемирный фестиваль молодёжи", desc: "Интерактивная выставка Кванториума. Более 2000 участников из 120 стран, презентация российского инженерного образования.", meta: "📍 март 2026 | 2000+ участников", img: "img/vfm.jpg" },
-            { title: "Биржа проектов (Дом Народного Единства)", desc: "Инвестиционная сессия: 15 стартапов, гранты на прототипы. Партнёрство с промышленными предприятиями.", meta: "📍 апрель 2026 | 100+ участников", img: "img/birzha.jpg" },
-            { title: "Профпогружение", desc: "Всероссийский фестиваль профориентации. Инженерные кейсы, мастер-классы для 5 регионов РФ и Казахстана.", meta: "📍 март-май 2026 | 1600+ участников", img: "img/profpogruzhenie.jpg" },
-            { title: "Героям посвящается", desc: "Межрегиональный конкурс 2D/3D-графики 8-17 лет. Цифровые портреты героев, выставка в технопарке.", meta: "📍 янв-май 2026 | 75+ участников", img: "img/geroyam.jpg" },
-            { title: "Среда Лаб", desc: "Научно-исследовательские интенсивы: робототехника, биотехнологии, программирование. Лучшие проекты на всероссийский уровень.", meta: "📍 апр-июнь 2026 | 120+ участников", img: "img/sredalab.jpg" }
+            { title: "ТехноСтрелка", desc: "Международный фестиваль: 900+ участников из РФ, Казахстана, Узбекистана. 28 команд Нижегородской области в финале, проекты-победители.", meta: "📍 фев-апр 2026 | 900+ участников", img: "img/4.jpg" },
+            { title: "ТехноФест", desc: "Крупнейший региональный робототехнический фестиваль. 12 направлений: сумо роботов, марафон, инженерные проекты. Главный организатор — Кванториум.", meta: "📍 апр-май 2026 | 600+ участников", img: "img/5.jpg" },
+            { title: "Чемпионат «Профессионалы»", desc: "Всероссийский чемпионат: мастер-классы по AR-открыткам, кибербезопасности. Участники из 15 регионов и стран СНГ.", meta: "📍 май 2026 | 400+ участников", img: "img/7.jpg" },
+            { title: "ИКаР (Инженерные кадры России)", desc: "Региональный этап соревнований и ИКаРёнок. Проекты автоматизации производств. Победители вышли в финал в Москве.", meta: "📍 март-апр 2026 | 200+ участников", img: "img/10.jpg" },
+            { title: "Олимпиада ПФО в Маяке", desc: "Интеллектуальная олимпиада: призовые места в программировании БПЛА и робототехнике. Решение реальных задач.", meta: "📍 май 2026 | 80+ участников", img: "img/16.jpg" },
+            { title: "Всемирный фестиваль молодёжи", desc: "Интерактивная выставка Кванториума. Более 2000 участников из 120 стран, презентация российского инженерного образования.", meta: "📍 март 2026 | 2000+ участников", img: "img/17.jpg" },
+            { title: "Биржа проектов (Дом Народного Единства)", desc: "Инвестиционная сессия: 15 стартапов, гранты на прототипы. Партнёрство с промышленными предприятиями.", meta: "📍 апрель 2026 | 100+ участников", img: "img/18.jpg" },
+            { title: "Профпогружение", desc: "Всероссийский фестиваль профориентации. Инженерные кейсы, мастер-классы для 5 регионов РФ и Казахстана.", meta: "📍 март-май 2026 | 1600+ участников", img: "img/19.jpg" },
+            { title: "Героям посвящается", desc: "Межрегиональный конкурс 2D/3D-графики 8-17 лет. Цифровые портреты героев, выставка в технопарке.", meta: "📍 янв-май 2026 | 75+ участников", img: "img/21.jpg" }
+         
         ];
 
         const summerEvents = [
-            { title: "Инженерные каникулы", desc: "Интенсивные смены 7-17 лет: CAD, 3D-печать, микроконтроллеры. Сертификаты и готовые проекты.", meta: "📅 июнь 2026 | 120+ участников", img: "img/eng_camp.jpg" },
-            { title: "День защиты детей", desc: "Квесты по безопасному интернету, мастер-классы по робототехнике, выездные мероприятия в школы.", meta: "📅 1 июня 2026 | 200+ участников", img: "img/child_day.jpg" },
-            { title: "Лагерь «Городские каникулы»", desc: "Смены: кибердетективы, креаторы и граффити. Квесты по квантумам, цифровая грамотность.", meta: "📅 июнь 2026 | 150+ участников", img: "img/gorod_camp.jpg" },
-            { title: "Смена «Лазурный» (Город мечты)", desc: "Тематическая смена «Наука»: робототехника, 3D-моделирование, VR/AR для школьников области.", meta: "📅 июнь-июль 2026 | 60 участников", img: "img/lazurniy.jpg" },
-            { title: "Фестиваль национальных видов спорта", desc: "VR-лапта от Кванториума на стадионе «Мещерский». Технологии + традиции.", meta: "📅 июнь 2026 | 50+ участников", img: "img/national_sport.jpg" }
+            { title: "Инженерные каникулы", desc: "Интенсивные смены 7-17 лет: CAD, 3D-печать, микроконтроллеры. Сертификаты и готовые проекты.", meta: "📅 июнь 2026 | 120+ участников", img: "img/22.jpg" },
+            { title: "День защиты детей", desc: "Квесты по безопасному интернету, мастер-классы по робототехнике, выездные мероприятия в школы.", meta: "📅 1 июня 2026 | 200+ участников", img: "img/24.jpg" },
+            { title: "Лагерь «Городские каникулы»", desc: "Смены: кибердетективы, креаторы и граффити. Квесты по квантумам, цифровая грамотность.", meta: "📅 июнь 2026 | 150+ участников", img: "img/26.jpg" },
+           
         ];
 
         const gamesData = [
@@ -587,20 +630,15 @@
             document.getElementById('lightbox').classList.remove('active');
         };
 
-        // стрелки слайдера
+        // Слайдер со стрелками
         function initSlider() {
             const container = document.getElementById('sliderContainer');
             const leftBtn = document.getElementById('sliderLeft');
             const rightBtn = document.getElementById('sliderRight');
             if (leftBtn && rightBtn && container) {
-                leftBtn.addEventListener('click', () => {
-                    container.scrollBy({ left: -320, behavior: 'smooth' });
-                });
-                rightBtn.addEventListener('click', () => {
-                    container.scrollBy({ left: 320, behavior: 'smooth' });
-                });
+                leftBtn.addEventListener('click', () => container.scrollBy({ left: -320, behavior: 'smooth' }));
+                rightBtn.addEventListener('click', () => container.scrollBy({ left: 320, behavior: 'smooth' }));
             }
-            // лайтбокс на слайдах
             document.querySelectorAll('.slide').forEach(slide => {
                 slide.addEventListener('click', (e) => {
                     const img = slide.querySelector('img');
@@ -609,7 +647,7 @@
             });
         }
 
-        // салют, звёзды, анимация
+        // Салют и звёзды
         (function fireworkAndStars() {
             const canvas = document.getElementById('fireworksCanvas');
             let ctx = canvas.getContext('2d');
@@ -674,17 +712,15 @@
             animate();
         })();
 
-        // инициализация
         createEventCards('flagshipGrid', flagshipEvents);
         createEventCards('summerGrid', summerEvents);
         createGamesGrid();
         initSlider();
 
-        // скролл анимация
         const sections = document.querySelectorAll('section');
         const obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.1 });
         sections.forEach(s => obs.observe(s));
-        document.getElementById('statsSection')?.classList.add('visible');
+        document.getElementById('statsWrapper')?.classList.add('visible');
         document.getElementById('eventsSection')?.classList.add('visible');
     </script>
 </body>
