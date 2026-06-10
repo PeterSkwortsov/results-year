@@ -793,8 +793,9 @@
                                     onerror="this.src='https://placehold.co/300x200/1e2a5e/white?text=Хайтек'">
                                 <div class="slide-caption">Хайтек: цифровое производство</div>
                             </div>
-                            <div class="slide" data-img="img/33.jpg"><img src="img/33.jpg" alt="Хайтек" loading="lazy"
-                                    onerror="this.src='https://placehold.co/300x200/1e2a5e/white?text=Хайтек'">
+                            <div class="slide" data-img="img/33.jpg"><img src="img/33.jpg" alt="Наноквантум"
+                                    loading="lazy"
+                                    onerror="this.src='https://placehold.co/300x200/1e2a5e/white?text=Наноквантум'">
                                 <div class="slide-caption">Наноквантум</div>
                             </div>
                             <div class="slide" data-img="img/23.jpg"><img src="img/23.jpg" alt="Медиаквантум"
@@ -817,12 +818,12 @@
                                     onerror="this.src='https://placehold.co/300x200/1e2a5e/white?text=Математика'">
                                 <div class="slide-caption">Математика</div>
                             </div>
-                            <div class="slide" data-img="img/32.jpg"><img src="img/27.jpg" alt="Математика"
+                            <div class="slide" data-img="img/32.jpg"><img src="img/32.jpg" alt="Английский язык"
                                     loading="lazy"
-                                    onerror="this.src='https://placehold.co/300x200/1e2a5e/white?text=Математика'">
+                                    onerror="this.src='https://placehold.co/300x200/1e2a5e/white?text=Английский язык'">
                                 <div class="slide-caption">Английский язык</div>
                             </div>
-                            <div class="slide" data-img="img/28.jpg"><img src="img/28.jpg" alt="Математика"
+                            <div class="slide" data-img="img/28.jpg"><img src="img/28.jpg" alt="Школа анимации"
                                     loading="lazy"
                                     onerror="this.src='https://placehold.co/300x200/1e2a5e/white?text=Школа анимации'">
                                 <div class="slide-caption">Школа анимации</div>
@@ -834,9 +835,15 @@
             </section>
 
             <!-- Флагманские проекты -->
-            <section id="eventsSection">
-                <div class="section-title">🏆 Флагманские проекты и события года</div>
+            <section id="flagshipSection">
+                <div class="section-title">🏆 Флагманские проекты</div>
                 <div class="events-grid" id="flagshipGrid"></div>
+            </section>
+
+            <!-- Ключевые события года -->
+            <section id="eventsSection">
+                <div class="section-title">Ключевые события года</div>
+                <div class="events-grid" id="eventsGrid"></div>
             </section>
 
             <!-- Игры -->
@@ -854,6 +861,8 @@
                 <div class="section-title-light">🌟 Летняя кампания и городские события</div>
                 <div class="events-grid" id="summerGrid"></div>
             </section>
+
+            
         </div>
     </div>
 
@@ -862,36 +871,40 @@
     </div>
 
     <script>
-        // Данные для карточек
+        // ========== ФЛАГМАНСКИЕ ПРОЕКТЫ ==========
         const flagshipEvents = [
             { title: "ТехноСтрелка", desc: "Международный фестиваль: 900+ участников из РФ, Казахстана, Узбекистана. 28 команд Нижегородской области в финале, проекты-победители.", meta: "📍 фев-апр 2026 | 900+ участников", img: "img/4.jpg" },
             { title: "ТехноФест", desc: "Крупнейший региональный робототехнический фестиваль. 12 направлений: сумо роботов, марафон, инженерные проекты. Главный организатор — Кванториум.", meta: "📍 апр-май 2026 | 600+ участников", img: "img/5.jpg" },
-            { title: "Чемпионат «Профессионалы»", desc: "Всероссийский чемпионат: мастер-классы по AR-открыткам, кибербезопасности. Участники из 15 регионов и стран СНГ.", meta: "📍 май 2026 | 400+ участников", img: "img/7.jpg" },
             { title: "ИКаР (Инженерные кадры России)", desc: "Региональный этап соревнований и ИКаРёнок. Проекты автоматизации производств. Победители вышли в финал в Москве.", meta: "📍 март-апр 2026 | 200+ участников", img: "img/10.jpg" },
-            { title: "Региональный этап Интеллектуальной олимпиады ПФО", desc: "Интеллектуальная олимпиада: призовые места в программировании БПЛА и робототехнике. Решение реальных задач.", meta: "📍 май 2026 | 80+ участников", img: "img/16.jpg" },
-            { title: "Всемирный фестиваль молодёжи", desc: "Интерактивная выставка Кванториума. Более 2000 участников из 120 стран, презентация российского инженерного образования.", meta: "📍 март 2026 | 2000+ участников", img: "img/17.jpg" },
             { title: "Биржа проектов (Дом Народного Единства)", desc: "Инвестиционная сессия: 15 стартапов, гранты на прототипы. Партнёрство с промышленными предприятиями.", meta: "📍 апрель 2026 | 100+ участников", img: "img/18.jpg" },
             { title: "Профпогружение", desc: "Всероссийский фестиваль профориентации. Инженерные кейсы, мастер-классы для 5 регионов РФ и Казахстана.", meta: "📍 март-май 2026 | 1600+ участников", img: "img/19.jpg" },
-            { title: "Героям посвящается", desc: "Межрегиональный конкурс 2D/3D-графики 8-17 лет. Цифровые портреты героев, выставка в технопарке.", meta: "📍 янв-май 2026 | 75+ участников", img: "img/21.jpg" },
-            { title: "Региональный итоговый форум «Взлёт. Промышленный старт» в Технопарке «Анкудиновка»", desc: "Это отличная возможность для школьников не только проявить свои навыки, но и узнать больше о возможностях, которые предлагает их родной край. Форум помогает старшеклассникам определиться с будущей профессией, а младшим — расширить представление о местных предприятиях и карьерных возможностях.", img: "img/34.jpg" }
+            { title: "Героям посвящается", desc: "Межрегиональный конкурс 2D/3D-графики 8-17 лет. Цифровые портреты героев, выставка в технопарке.", meta: "📍 янв-май 2026 | 75+ участников", img: "img/21.jpg" }
+        ];
+
+        // ========== КЛЮЧЕВЫЕ СОБЫТИЯ ГОДА ==========
+        const eventsData = [
+            { title: "Чемпионат «Профессионалы»", desc: "Всероссийский чемпионат: мастер-классы по AR-открыткам, кибербезопасности. Участники из 15 регионов и стран СНГ.", meta: "📍 май 2026 | 400+ участников", img: "img/7.jpg" },
+            { title: "Всемирный фестиваль молодёжи", desc: "Интерактивная выставка Кванториума. Более 2000 участников из 120 стран, презентация российского инженерного образования.", meta: "📍 март 2026 | 2000+ участников", img: "img/17.jpg" },
             
+            { title: "Региональный этап Интеллектуальной олимпиады ПФО", desc: "Интеллектуальная олимпиада: призовые места в программировании БПЛА и робототехнике. Решение реальных задач.", meta: "📍 май 2026 | 80+ участников", img: "img/16.jpg" },
+            { title: "Региональный итоговый форум «Взлёт. Промышленный старт»", desc: "Возможность для школьников проявить навыки, узнать о местных предприятиях и карьерных возможностях.", meta: "📍 май 2026 | 800+ участников", img: "img/34.jpg" }
         ];
 
         const summerEvents = [
             { title: "Инженерные каникулы", desc: "Интенсивные смены 7-17 лет: CAD, 3D-печать, микроконтроллеры. Сертификаты и готовые проекты.", meta: "📅 июнь 2026 | 120+ участников", img: "img/22.jpg" },
             { title: "День защиты детей", desc: "Квесты по безопасному интернету, мастер-классы по робототехнике, выездные мероприятия в школы.", meta: "📅 1 июня 2026 | 200+ участников", img: "img/24.jpg" },
-            { title: "Лагерь «Городские каникулы»", desc: "Смены: кибердетективы, креаторы и граффити. Квесты по квантумам, цифровая грамотность.", meta: "📅 июнь 2026 | 150+ участников", img: "img/26.jpg" },
+            { title: "Лагерь «Городские каникулы»", desc: "Смены: кибердетективы, креаторы и граффити. Квесты по квантумам, цифровая грамотность.", meta: "📅 июнь 2026 | 150+ участников", img: "img/26.jpg" }
         ];
 
         const gamesData = [
             { name: "Квантохак", desc: "Интерактивная 2D-игра в командном формате. Логические аркады, математические головоломки, алгоритмика и скорость решений.", img: "img/quantohack.jpg" },
             { name: "Уборка в комнате", desc: "Для дошкольников: поиск лишних предметов, порядок в комнатах. Развивает аккуратность и внимательность в мягкой карандашной рисовке.", img: "img/4.jpeg" },
             { name: "Зельевары", desc: "Командная соревновательная игра по метрологии в русском сказочном сеттинге. Квест + цифровые мини-игры с измерениями.", img: "img/potion.jpg" },
-            { name: "Озеро Водяного", desc: "Мультиэкранная локация: запуск «блинчиков» по воде. Рассчёт угла и силы броска, проверка реакции.", img: "img/lake.jpg" },
+            { name: "Озеро Водяного", desc: "Мультиэкранная локация: запуск «блинчиков» по воде. Рассчёт угла и силы броска, проверка реакции.", img: "img/5-.jpeg" },
             { name: "Экспериментариум", desc: "Командная игра по химии/физике с тремя ролями. Создание реагентов, атаки и защита. Доступно без специальных знаний.", img: "img/31.jpg" },
-            { name: "Экспериментариум лайт", desc: "Адаптированная версия для дошкольников: смешивание цветов, упрощённое управление, без атак. Первый интерес к наукам.", img: "img/experiment_lite.jpg" },
+            { name: "Экспериментариум лайт", desc: "Адаптированная версия для дошкольников: смешивание цветов, упрощённое управление, без атак. Первый интерес к наукам.", img: "img/7-.jpeg" },
             { name: "Безопасный интернет", desc: "Турнир «белые vs чёрные хакеры». Шифрование, взлом, расшифровка данных — знакомство с кибербезопасностью в аркадном формате.", img: "img/safe_internet.jpg" },
-            { name: "Научная мозаика", desc: "Дуэли на решение научных головоломок. Вызов оппонента, захват территорий, открытие деталей общей мозаики.", img: "img/mosaic.jpg" },
+            { name: "Научная мозаика", desc: "Дуэли на решение научных головоломок. Вызов оппонента, захват территорий, открытие деталей общей мозаики.", img: "img/6-.jpeg" },
             { name: "Экспериментариум 3D", desc: "Полноценная 3D-изометрическая версия. Свободное перемещение по лабораториям, усиленное командное взаимодействие.", img: "img/3.jpeg" },
             { name: "Конструкторское бюро", desc: "Обучающая аркада 2D+3D для детей: создание деталей через управление мышью/клавиатурой, сборка транспорта по чертежам и тест-драйв.", img: "img/c.jpeg" }
         ];
@@ -952,7 +965,6 @@
 
             if (!container || !leftBtn || !rightBtn) return;
 
-            // Функция для центрирования текущего слайда
             function centerCurrentSlide() {
                 const containerRect = container.getBoundingClientRect();
                 const containerCenter = containerRect.left + containerRect.width / 2;
@@ -976,7 +988,6 @@
                 }
             }
 
-            // Обработчики стрелок
             leftBtn.addEventListener('click', () => {
                 container.scrollBy({ left: -300, behavior: 'smooth' });
                 setTimeout(centerCurrentSlide, 300);
@@ -987,25 +998,21 @@
                 setTimeout(centerCurrentSlide, 300);
             });
 
-            // Центрирование при остановке прокрутки
             let scrollTimeout;
             container.addEventListener('scroll', () => {
                 clearTimeout(scrollTimeout);
                 scrollTimeout = setTimeout(centerCurrentSlide, 150);
             });
 
-            // Клик по слайду
             slides.forEach(slide => {
                 slide.addEventListener('click', (e) => {
                     const img = slide.querySelector('img');
                     if (img && img.src) openLightbox(img.src);
-                    // Центрируем выбранный слайд
                     const scrollLeft = slide.offsetLeft - (container.clientWidth / 2) + (slide.clientWidth / 2);
                     container.scrollTo({ left: scrollLeft, behavior: 'smooth' });
                 });
             });
 
-            // Первоначальное центрирование после загрузки
             setTimeout(centerCurrentSlide, 100);
         }
 
@@ -1047,24 +1054,6 @@
 
             document.getElementById('navGamesBtn').addEventListener('click', () => {
                 document.getElementById('gamesSection').scrollIntoView({ behavior: 'smooth' });
-            });
-
-            document.querySelectorAll('.nav-menu a').forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const section = link.getAttribute('data-section');
-                    if (section === 'top') {
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                    } else if (section === 'missions') {
-                        document.getElementById('missions').scrollIntoView({ behavior: 'smooth' });
-                    } else if (section === 'eventsSection') {
-                        document.getElementById('eventsSection').scrollIntoView({ behavior: 'smooth' });
-                    } else if (section === 'gamesSection') {
-                        document.getElementById('gamesSection').scrollIntoView({ behavior: 'smooth' });
-                    } else if (section === 'summerSection') {
-                        document.getElementById('summerSection').scrollIntoView({ behavior: 'smooth' });
-                    }
-                });
             });
         }
 
@@ -1179,6 +1168,7 @@
 
         // Запуск всех функций
         createEventCards('flagshipGrid', flagshipEvents);
+        createEventCards('eventsGrid', eventsData);
         createEventCards('summerGrid', summerEvents);
         createGamesGrid();
         initSlider();
@@ -1191,6 +1181,7 @@
         }, { threshold: 0.1 });
         sections.forEach(s => obs.observe(s));
         document.getElementById('statsWrapper')?.classList.add('visible');
+        document.getElementById('flagshipSection')?.classList.add('visible');
         document.getElementById('eventsSection')?.classList.add('visible');
 
         // Запуск анимации цифр при появлении блока статистики
